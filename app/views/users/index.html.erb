@@ -1,0 +1,19 @@
+<h1>Users</h1>
+ <table>
+   <thead>
+   	<tr>
+   	 <th>写真</th>
+   	 <th>name</th>
+   	 <th></th>
+   	</tr>
+   </thead>
+   <tbody>
+   	<% @books.each do |book| %>
+   	 <tr>
+   	  <td>写真<% attachment_image_tag user,:image %></td>
+   	  <td><%= books.user.name %></td>
+   	  <td>Show<%= "" %></td>
+   	 </tr>
+   	<% end %>
+   </tbody>
+ </table>

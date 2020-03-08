@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WelcomeToBookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <h1>Bookers</h1>
+    <div id="header">
+      <ul class="">
+        <% if user_signed_in? %>
+          <li class="">
+            <%= link_to "Home", "#" %>
+          </li>
+          <li class="">
+            <%= link_to "Users", "#" %>
+          </li>
+          <li class="">
+            <%= link_to "Books", "#" %>
+          </li>
+          <li class="">
+            <%= link_to "logout", "#" %>
+          </li>
+        <% else %>
+          <li class="">
+            <%= link_to "Home", "#" %>
+          </li>
+          <li class="">
+            <%= link_to "About", "#" %>
+          </li>
+          <li class="">
+            <%= link_to "sign up", "#" %>
+          </li>
+          <li class="">
+            <%= link_to "log in", "#" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= yield %>
+    <div class="footer">
+      <p>CopyRight Infratop.inc</p>
+    </div>
+  </body>
+</html>
