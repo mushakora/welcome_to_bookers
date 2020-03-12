@@ -10,41 +10,55 @@
   </head>
 
   <body>
-  <h1>Bookers</h1>
-    <div id="header">
-      <ul class="">
+  <div style="padding-bottom: 50px;">
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav class='nav navbar-nav navbar-left'>
+        <div style="color: white;">
+        <h3>Bookers</h3>
+        </div>
+      </nav>
+      <nav>
+       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li class="">
-            <%= link_to "Home", "#" %>
+            <%= link_to "Home" , user_path(current_user) ,class: "glyphicon glyphicon-home" %>
           </li>
           <li class="">
-            <%= link_to "Users", "#" %>
+            <%= link_to "Users", users_path, class: "glyphicon glyphicon-user" %>
           </li>
           <li class="">
-            <%= link_to "Books", "#" %>
+            <%= link_to "Books", books_path, class: "glyphicon glyphicon-book" %>
           </li>
           <li class="">
-            <%= link_to "logout", "#" %>
+            <%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-share" %>
           </li>
         <% else %>
           <li class="">
-            <%= link_to "Home", "#" %>
+            <%= link_to "Home", root_path, class: "glyphicon glyphicon-home" %>
           </li>
           <li class="">
-            <%= link_to "About", "#" %>
+            <%= link_to "About", home_about_path, class: "glyphicon glyphicon-link" %>
           </li>
           <li class="">
-            <%= link_to "sign up", "#" %>
+            <%= link_to "sign up", new_user_registration_path, class: "glyphicon glyphicon-edit" %>
           </li>
           <li class="">
-            <%= link_to "log in", "#" %>
+            <%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
           </li>
         <% end %>
-      </ul>
+       </ul>
+      </nav>
     </div>
+  </nav>
+</div>
     <%= yield %>
-    <div class="footer">
-      <p>CopyRight Infratop.inc</p>
+    <div class="container">
+      <div class="row">
+      <div class='col-xs-3 col-xs-offset-9'>
+        <p>CopyRight Infratop.inc</p>
+      </div>
+      </div>
     </div>
   </body>
 </html>

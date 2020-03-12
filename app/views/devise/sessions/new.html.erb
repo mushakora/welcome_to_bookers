@@ -1,4 +1,10 @@
+<div class="container">
+  <p id="notice"></p>
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  </div>
 <h2>Log in</h2>
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
@@ -21,8 +27,10 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "col-xs-2 btn btn-primary" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+  </div>
+</div>

@@ -1,1 +1,33 @@
-<h1>新規投稿　共通</h1>
+<div class="side">
+ <h2>User info</h2>
+  <table class="table table-striped">
+    <tr><%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %></tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </table>
+  <div class="row">
+    <% if user == current_user %>
+    <%= link_to "" ,edit_user_path(current_user) ,class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+    <% else %>
+    <%= link_to "" ,user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+    <% end %>
+  </div>
+
+ <h2>New book</h2>
+  <%= form_for(book, url: books_path) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+    <h4>Title</h4>
+    <%= f.text_field :title, class: "col-xs-12" %>
+
+    <div class="box"><h4>Opinion</h4>
+    <%= f.text_area :body, class: "col-xs-12" %></div>
+
+    <h4><%= f.submit 'Create Book', class: "col-xs-12 btn btn-default btn btn-primary" %></h4>
+  <% end %>
+</div>
